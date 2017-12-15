@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Object JavaScript Application</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        
+        <!-- Bootstrap CSS embed -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+        <link rel="stylesheet" href="lib/index.css">
+    </head>
+    <body>
+        <!-- General own content -->
+        <div class="container-fluid">
+            <nav class="nav nav-tabs nav-fill" id="object-navigation" role="tablist">
+                <a class="nav-link" id="nav-objects-tab">Objects</a>
+                <a class="nav-item nav-link active" id="nav-definitions-tab" data-toggle="tab" role="tab" aria-controls="nav-definitions" aria-selected="true" href="#nav-definitions">Definitions</a>
+                <a class="nav-item nav-link" id="nav-properties-tab" data-toggle="tab" role="tab" aria-controls="nav-properties" aria-selected="false" href="#nav-properties">Properties</a>
+                <a class="nav-item nav-link" id="nav-methods-tab" data-toggle="tab" role="tab" aria-controls="nav-methods" aria-selected="false" href="#nav-methods">Methods</a>
+                <a class="nav-item nav-link" id="nav-constructors-tab" data-toggle="tab" role="tab" aria-controls="nav-constructors" aria-selected="false" href="#nav-constructors">Constructors</a>
+                <a class="nav-item nav-link" id="nav-prototypes-tab" data-toggle="tab" role="tab" aria-controls="nav-prototypes" aria-selected="false" href="#nav-prototypes">Prototypes</a>
+            </nav>
+            <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="nav-definitions" role="tabpanel" aria-labelledby="nav-objects-tab">
+                    
+                    <h5>Creation a first class <span class="badge badge-warning" data-toggle="tooltip" data-placement="right" title="You can create a first class.">info</span></h5>
+                    <hr>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <span class="input-group-addon basic" id="basic-addon1">Output</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <textarea class="form-control basic" id="outBlock1" rows="10" aria-describedby="basic-addon1" placeholder="Click the button below for display results..." readonly></textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="btn-group" role="group" aria-label="basic-buttons">
+                                <button type="button" class="btn btn-warning basic" id="btn1">Create a first class</button>
+                                <button type="button" class="btn btn-warning basic reset" id="btn2">Reset data</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h5 class="further-headings">Creation class with "new" keyword <span class="badge badge-warning" data-toggle="tooltip" data-placement="right" title="You can create different classes with new.">info</span></h5>
+                    <hr>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <span class="input-group-addon basic" id="basic-addon2">Output</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <textarea class="form-control basic" id="outBlock2" rows="10" aria-describedby="basic-addon2" placeholder="Click the button below for display results..." readonly></textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="btn-group" role="group" aria-label="basic-buttons">
+                                <button type="button" class="btn btn-warning basic" id="btn2">Create a class</button>
+                                <button type="button" class="btn btn-warning basic reset" id="btn3">Reset data</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade show" id="nav-properties" role="tabpanel" aria-labelledby="nav-properties-tab">
+                    <h5>Accesing object properties <span class="badge badge-warning" data-toggle="tooltip" data-placement="right" title="You can access object properties with different three methods. Click to any buttons below for checking out!">info</span></h5>
+                    <hr>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <span class="input-group-addon basic" id="basic-addon3">Output</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <textarea class="form-control basic" id="outBlock3" rows="10" aria-describedby="basic-addon3" placeholder="Click the button bellow for displat results..." readonly></textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="btn-group" role="group" aria-label="basic-buttons">
+                                <button type="button" class="btn btn-warning basic3X" id="0">objectName.property</button>
+                                <button type="button" class="btn btn-warning basic3X" id="1">objectname["property"]</button>
+                                <button type="button" class="btn btn-warning basic3X" id="2">objectName["expression"]</button>
+                            </div>
+                        </div>
+                    </div>
+                    <h5 class="further-headings">Looping Object Elements <span class="badge badge-warning" data-toggle="tooltip" data-placement="right" title="You can lopping all elements with help specific language-operator">info</span></h5>
+                    <hr>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <span class="input-group-addon basic" id="basic-addon4">Input</span>
+                        </div>
+                    </div>
+                    <div class="row looping">
+                        <div class="col">
+                            <div class="input-group">
+                                <span class="input-group-addon sp" id="basic-addon2">1th</span>
+                                <input type="number" class="form-control" placeholder="1th value" aria-label="first-value" aria-describedby="basic-addon-3" required>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="input-group">
+                                <span class="input-group-addon sp" id="basic-addon2" required>2th</span>
+                                <input type="number" class="form-control" placeholder="2th value" aria-label="second-value" aria-describedby="basic-addon-3">
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="input-group">
+                                <span class="input-group-addon sp" id="basic-addon2">3th</span>
+                                <input type="number" class="form-control" placeholder="3th value" aria-label="third-label" aria-describedby="basic-addon-3">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="btn-group" role="group" aria-label="basic-buttons">
+                                <button type="button" class="btn btn-warning basic" id="check_loop">Checking looping</button>
+                                <button type="button" class="btn btn-warning basic" id="reset_loop">Reset data</button>
+                            </div>
+                        </div>
+                    </div>
+                    <h5 class="further-headings">Add a new property to object <span class="badge badge-warning" data-toggle="tooltip" data-placement="right" title="You can add/delete property to the new object and output his.">info</span>
+                    </h5>
+                    <hr>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <span class="input-group-addon basic" id="basic-addon8">Input</span>
+                        </div>
+                    </div>
+                    <div class="row looping" id="loop-replace">
+                        <div class="col-lg-12">
+                            <div class="input-group">
+                                <span class="input-group-addon add" id="basic-addon1">Add a new property</span>
+                                <input type="text" class="form-control" placeholder="Any text..." aria-label="new-property" aria-describedby="basic-addon1">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="btn-group" role="group" aria-label="basic-buttons">
+                                <button type="button" class="btn btn-warning basic" id="btn3">Add a new property</button>
+                                <button type="button" class="btn btn-warning basic" id="btn3">Delete property</button>
+                                <button type="button" class="btn btn-warning basic" id="btn3">Reset data</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade show" id="nav-methods" role="tabpanel" aria-labelledby="nav-methods-tab">
+                    <h5>Accesing methods in the object <span class="badge badge-warning" data-toggle="tooltip" data-placement="right" title="You can access and using built-in methods in the object.">info</span></h5>
+                    <hr>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <span class="input-group-addon basic" id="basic-addon9">Output</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <textarea class="form-control basic" id="outBlock12" rows="10" aria-describedby="basic-addon-3" placeholder="Click buttons below..." readonly></textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="btn-group" role="group" aria-label="basic-buttons">
+                                <button type="button" class="btn btn-warning basic">Add a new method</button>
+                                <button type="button" class="btn btn-warning basic">Use a new method</button>
+                                <button type="button" class="btn btn-warning basic">Reset data</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade show" id="nav-constructors" role="tabpanel" aria-labelledby="nav-constructors-tab">
+                    <h5>Testing object-contructors: <span class="badge badge-warning" data-toggle="tooltip" data-placement="right" title="You can test all opportunities in the main prototype - planets.">info</span></h5>
+                    <hr>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <span class="input-group-addon basic" id="basic-addon9">Planets</span>
+                        </div>
+                    </div>
+                    <div class="row looping">
+                        <div class="col-lg-12">
+                            <div class="external-container"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="btn-group" role="group" aria-label="basic-buttons">
+                                <button type="button" class="btn btn-warning basic">Add a new planet</button>
+                                <button type="button" class="btn btn-warning basic">Delete all planets</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade show" id="nav-prototypes" role="tabpanel" aria-labelledby="nav-prototypes-tab">Prototypes</div>
+            </div>
+        </div>
+        <!-- JQuery, Popper.js and Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+        <!-- My own embed JS -->
+        <script src="lib/index.js"></script>
+    </body>
+</html>
