@@ -460,23 +460,8 @@ document.getElementsByClassName("btn btn-warning basic")[15].addEventListener("c
     };
     Rocket.prototype.changeOut = function(){
         this.payload_to_GTO_Out = this.payload_to_GTO + "kg";
-        this.cost_per_launch_Out = "$" + this.cost_per_launch;
+        this.cost_per_launch_Out = "$" + this.cost_per_launch + 'm';
     }
-    createdObject = new Rocket(
-        'Minotaur I',
-        'Orbital Sciences',
-        'USA',
-        30000000,
-        '19.21m',
-        '1.67m',
-        '36.2t',
-        '4 or 5',
-        580
-        );
-    createdObject.comparise();
-    createdObject.changeOut();
-    console.log(createdObject.payload_to_GTO_Out);
-    console.log(createdObject.cost_per_launch_Out);
 });
 
 function addRocketBtn(){
@@ -496,6 +481,7 @@ function addRocketBtn(){
     console.log(btnCont.length);
 }
 
+var extObject;
 function addLoader(){
     var lCont = document.getElementsByClassName("loader-cont"),
     loader = document.getElementsByClassName("loader"),
@@ -539,20 +525,22 @@ function addLoader(){
             newBtn[i].setAttribute("class","btn btn-warning basic");
             if(i == 0){
                 newBtn[i].textContent = "Add a new rocket object";
+                newBtn[i].setAttribute("onclick","addPreparedRockets()");
             } else {
                 newBtn[i].textContent = "Reset all data";
+                newBtn[i].setAttribute("onclick","resetPreparedRockets()");
             }
             newBtnCont.appendChild(newBtn[i]);
             console.log("Array " + newBtn);
             i++;
         }
         btnCont[0].appendChild(newBtnCont);
-        console.log(newBtnCont);
+        extObject = addNewRockets();
     },18000);
 }
 
 //Prototype of rocket-object:
-function Rocket(Name,MAN,C,CPL,H,D,m,st,PGTO){
+function Rocket(Name,MAN,C,CPL,H,D,m,st,PGTO,Img){
     this.name = Name;
     this.manufacturer = MAN;
     this.country = C;
@@ -562,4 +550,333 @@ function Rocket(Name,MAN,C,CPL,H,D,m,st,PGTO){
     this.mass = m;
     this.stages = st;
     this.payload_to_GTO = PGTO;
+    this.img = Img;
+}
+
+//Function for creation a new array of rocket-objects:
+function addNewRockets(){
+    var rocketArr = [];
+    rocketArr.length = 6;
+    rocketArr[0] = new Rocket(
+        'Space Launch System',
+        'https://upload.wikimedia.org/wikipedia/en/thumb/b/b2/ULA_logo.svg/124px-ULA_logo.svg.png',
+        'https://image.flaticon.com/icons/svg/330/330459.svg',
+        500000000,
+        '64.6m',
+        '8.4m',
+        88760,
+        '2',
+        130000,
+        'https://upload.wikimedia.org/wikipedia/commons/3/33/Space_Launch_System_in_Flight.jpg'
+        );
+    rocketArr[1] = new Rocket(
+        'Proton-M',
+        'https://upload.wikimedia.org/wikipedia/en/thumb/2/2f/Khrunichev_logo.svg/1200px-Khrunichev_logo.svg.png',
+        'https://image.flaticon.com/icons/svg/330/330437.svg',
+        65000000,
+        '58.2m',
+        '7.4m',
+        705000,
+        '3 or 4',
+        23000,
+        'http://www.esa.int/var/esa/storage/images/esa_multimedia/images/2016/03/proton_rocket_moved_into_vertical_position/15862692-2-eng-GB/Proton_rocket_moved_into_vertical_position.jpg'
+        );
+    rocketArr[2] = new Rocket(
+        'Cyclone-4M',
+        'https://upload.wikimedia.org/wikipedia/en/3/38/Yuzhmash_logo.png',
+        'https://image.flaticon.com/icons/svg/330/330540.svg',
+        60000000,
+        '38.7m',
+        '4.0m',
+        5000,
+        '2',
+        234000,
+        'http://spaceflight101.com/wp-content/uploads/2017/03/high_definition_C4M-2.jpg'
+        );
+        rocketArr[3] = new Rocket(
+        'Ariane 6',
+        'https://upload.wikimedia.org/wikipedia/fr/thumb/b/b8/ArianeGroup_Logo_2017.PNG/1200px-ArianeGroup_Logo_2017.PNG',
+        'https://image.flaticon.com/icons/svg/330/330426.svg',
+        90000000,
+        '63m',
+        '5.4m',
+        860000,
+        '2',
+        12000,
+        'https://mk0spaceflightnoa02a.kinstacdn.com/wp-content/uploads/2015/06/ariane64.png'
+        );
+        rocketArr[4] = new Rocket(
+        'Long March 5B',
+        'http://scifimethods.com/wp-content/uploads/2014/09/casc.png',
+        'https://image.flaticon.com/icons/svg/330/330651.svg',
+        650000000,
+        '57m',
+        '5m',
+        879000,
+        '2',
+        23000,
+        'http://www.spaceflightinsider.com/wp-content/uploads/2016/10/Long-March-5_rollout-2016-10-28_img3-1200x800.jpg'
+        );
+        rocketArr[5] = new Rocket(
+        'H-IIB',
+        'https://upload.wikimedia.org/wikipedia/en/thumb/d/d6/Mitsubishi_Heavy_Industries_%28logo%29.svg/1280px-Mitsubishi_Heavy_Industries_%28logo%29.svg.png',
+        'https://image.flaticon.com/icons/svg/330/330622.svg',
+        112500000,
+        '56.5m',
+        '5.2m',
+        531000000,
+        '2',
+        8000,
+        'https://danspace77.files.wordpress.com/2017/08/17-073b.jpg',
+        );
+        for(var i=0;i<rocketArr.length;i++){
+            rocketArr[i].comparise();
+            rocketArr[i].changeOut();
+        }
+        console.log(rocketArr);
+        return rocketArr;
+}
+
+//Function for compose all rockets in the final objects:
+function addPreparedRockets(){
+    var outCont = document.getElementsByClassName("external-container rocket"),
+    flexCont = document.createElement("div"),
+    rightCont = document.createElement("div"),
+    aCont = [],
+    rCont = [];
+    rCont.length = 6;
+    aCont.length = 7;
+    flexCont.setAttribute("class","nav flex-column nav-pills left-menu");
+    flexCont.setAttribute("id","v-pills-tab");
+    flexCont.setAttribute("role","tablist");
+    flexCont.setAttribute("aria-orientation","vertical");
+    for(var i=0;i<aCont.length;i++){
+        aCont[i] = document.createElement("a");
+        aCont[i].setAttribute("class","nav-link rocket");
+        aCont[i].setAttribute("data-toggle","pill");
+        aCont[i].setAttribute("role","tab");
+        aCont[i].setAttribute("aria-selected","false");
+        if(i == 0){
+            aCont[i].setAttribute("class","nav-link rocket active");
+            aCont[i].setAttribute("aria-selected","true");
+            aCont[i].setAttribute("aria-controls","v-pills-sls");
+            aCont[i].setAttribute("id","v-pills-sls-tab");
+            aCont[i].setAttribute("href","#v-pills-sls");
+            aCont[i].setAttribute("onclick","changeActiveClass('sls')");
+            aCont[i].innerHTML = extObject[0].name;
+        } else if(i == 1){
+            aCont[i].setAttribute("aria-controls","v-pills-proton");
+            aCont[i].setAttribute("id","v-pills-proton-tab");
+            aCont[i].setAttribute("href","#v-pills-proton");
+            aCont[i].setAttribute("onclick","changeActiveClass('proton')");
+            aCont[i].innerHTML = extObject[1].name;
+        } else if(i == 2){
+            aCont[i].setAttribute("aria-controls","v-pills-cyclone");
+            aCont[i].setAttribute("id","v-pills-cyclone-tab");
+            aCont[i].setAttribute("href","#v-pills-cyclone");
+            aCont[i].setAttribute("onclick","changeActiveClass('cyclone')");
+            aCont[i].innerHTML = extObject[2].name;
+        } else if(i == 3){
+            aCont[i].setAttribute("aria-controls","v-pills-ariane");
+            aCont[i].setAttribute("id","v-pills-ariane-tab");
+            aCont[i].setAttribute('href',"#v-pills-ariane");
+            aCont[i].setAttribute("onclick","changeActiveClass('ariane')");
+            aCont[i].innerHTML = extObject[3].name;
+        } else if(i == 4){
+            aCont[i].setAttribute("aria-controls","v-pills-longmarch");
+            aCont[i].setAttribute("id","v-pills-longmarch-tab");
+            aCont[i].setAttribute("href","#v-pills-longmarch");
+            aCont[i].setAttribute("onclick","changeActiveClass('longmarch')");
+            aCont[i].innerHTML = extObject[4].name;
+        } else if(i == 5){
+            aCont[i].setAttribute("aria-controls","v-pills-h2b");
+            aCont[i].setAttribute("id","v-pills-h2b-tab");
+            aCont[i].setAttribute("href","#v-pills-h2b");
+            aCont[i].setAttribute("onclick","changeActiveClass('h2b')");
+            aCont[i].innerHTML = extObject[5].name;
+        } else if(i == 6){
+            aCont[i].setAttribute("aria-controls","v-pills-comparis");
+            aCont[i].setAttribute("id","v-pills-comparise-tab");
+            aCont[i].setAttribute("href","#v-pills-comparise");
+            aCont[i].setAttribute("onclick","changeActiveClass('comparise')");
+            aCont[i].innerHTML = 'Comparise';
+        }
+        flexCont.appendChild(aCont[i]);
+    }
+    rightCont.setAttribute("class","tab-content right-output");
+    rightCont.setAttribute("id","v-pills-tabContent");
+    //Creation a right side of new menu:
+    outCont[0].innerHTML = '';
+    outCont[0].style.height = 'auto';
+    outCont[0].appendChild(flexCont);
+    var tabPaneArray = [];
+    tabPaneArray.length = 6;
+    for(var i=0;i<tabPaneArray.length;i++){
+        var tabPane = document.createElement("div"),
+        rockCont = document.createElement("div"),
+        imgSrc = document.createElement("img"),
+        rockP = document.createElement("div"),
+        badgeSpan = document.createElement("span"),
+        rockContSec = document.createElement("div"),
+        rockTable = document.createElement("table"),
+        rocktHead = document.createElement("thead"),
+        rockTr = [];
+        rockTr.length = 9;
+        for(var j=0;j<rockTr.length;j++){
+            rockTr[j] = document.createElement("tr");
+        }
+        var rockTh = [];
+        rockTh.length = 11;
+        var temp = 1;
+        for(j=0;j<rockTh.length;j++){
+            rockTh[j] = document.createElement("th");
+            if(j == 1){
+                rockTh[j].innerHTML = "Parameter";
+            } else if(j == 2){
+                rockTh[j].innerHTML = "Name";
+            } else if (j >=3){
+                rockTh[j].innerHTML = temp;
+                temp++;
+            }
+        }
+        var rocktBody = document.createElement("tbody"),
+        rockTd = [];
+        rockTd.length = 16;
+        for(j=0;j<rockTd.length;j++){
+            rockTd[j] = document.createElement("td");
+            switch(j){
+                case 0:
+                    rockTd[j].innerHTML = "Manufacturer";
+                    break;
+                case 2:
+                    rockTd[j].innerHTML = "Country";
+                    break;
+                case 4:
+                    rockTd[j].innerHTML = "Cost per launch";
+                    break;
+                case 6:
+                    rockTd[j].innerHTML = "Height";
+                    break;
+                case 8:
+                    rockTd[j].innerHTML = "Diameter";
+                    break;
+                case 10:
+                    rockTd[j].innerHTML = "Mass";
+                    break;
+                case 12:
+                    rockTd[j].innerHTML = "Stages";
+                    break;
+                case 14:
+                    rockTd[j].innerHTML = "Payload to (GTO)";
+                    break;
+            }
+        }
+        var imgArray = [];
+        imgArray.length = 2;
+        for(j=0;j<imgArray.length;j++){
+            imgArray[j] = document.createElement("img");
+        }
+        //Setting general attributes for all elements:
+        tabPane.setAttribute("class","tab-pane fade rocket");
+        tabPane.setAttribute("role","tabpanel");
+        rockCont.setAttribute("class","rocket-container");
+        imgSrc.setAttribute("class","rounded-top rockets-img");
+        rockP.setAttribute("class","rocket-name rounded-bottom");
+        badgeSpan.setAttribute("class","badge badge-warning");
+        badgeSpan.setAttribute("data-toggle","tooltip");
+        badgeSpan.setAttribute("data-placement","bottom");
+        badgeSpan.setAttribute("title","Amound of flights");
+        rockContSec.setAttribute("class","rocket-container second");
+        rockTable.setAttribute("class","table table-striped table-dark");
+        for(j=0;j<11;j++){
+            if(j < 3){
+               rockTh[j].setAttribute("scope","col"); 
+            } else {
+                rockTh[j].setAttribute("scope","row");
+            }
+        }
+        imgArray[0].setAttribute("class","firm-icon");
+        imgArray[1].setAttribute("class","country-icon");
+        //Setting customizing attributes to the selected elements:
+        switch(i){
+            case 0:
+                tabPane.setAttribute("class","tab-pane fade show rocket active");
+                tabPane.setAttribute("id","v-pills-sls");
+                tabPane.setAttribute("aria-labelledby","v-pills-sls-tab");
+                imgArray[0].setAttribute("title","United Launch Alliance");
+                break;
+            case 1:
+                tabPane.setAttribute("id","v-pills-proton");
+                tabPane.setAttribute("aria-labelledby","v-pills-protone-tab");
+                imgArray[0].setAttribute("title","Khrunichev State Research and Production Space Center");
+                break;
+            case 2:
+                tabPane.setAttribute("id","v-pills-cyclone");
+                tabPane.setAttribute("aria-labelledby","v-pills-cyclone-tab");
+                imgArray[0].setAttribute("title","Yuzhnoe Design Office");
+                break;
+            case 3:
+                tabPane.setAttribute("id","v-pills-ariane");
+                tabPane.setAttribute("aria-labelledby","v-pills-ariane-tab");
+                imgArray[0].setAttribute("title","ArianeGroup");
+                break;
+            case 4:
+                tabPane.setAttribute("id","v-pills-longmarch");
+                tabPane.setAttribute("aria-labelledby","v-pills-longmarch-tab");
+                imgArray[0].setAttribute("title","China Academy of Launch Vehicle Technology");
+                break;
+            case 5:
+                tabPane.setAttribute("id","v-pills-h2b");
+                tabPane.setAttribute("aria-labelledby","v-pills-h2b-tab");
+                imgArray[0].setAttribute("title","Mitsubishi Heavy Industries");
+                break;
+        }
+        imgSrc.setAttribute("src",extObject[i].img);
+        rockP.innerHTML = extObject[i].name;
+        imgArray[0].setAttribute("src",extObject[i].manufacturer);
+        imgArray[1].setAttribute("src",extObject[i].country);
+        rockTd[5].innerHTML = extObject[i].cost_per_launch_Out;
+        rockTd[7].innerHTML = extObject[i].height;
+        rockTd[9].innerHTML = extObject[i].diameter;
+        rockTd[11].innerHTML = extObject[i].mass;
+        rockTd[13].innerHTML = extObject[i].stages;
+        rockTd[15].innerHTML = extObject[i].payload_to_GTO;
+        //Appending all elements to one main container:
+        tabPane.appendChild(rockCont);
+        tabPane.appendChild(rockContSec);
+        rockCont.appendChild(imgSrc);
+        rockCont.appendChild(rockP);
+        rockContSec.appendChild(rockTable);
+        rockTable.appendChild(rocktHead);
+        rocktHead.appendChild(rockTr[0]);
+        for(var v=0;v<3;v++){
+            rockTr[0].appendChild(rockTh[v]);
+        }
+        rockTable.appendChild(rocktBody);
+        var h=3, d=0;
+        for(j=1;j<9;j++){
+            rocktBody.appendChild(rockTr[j]);
+            rockTr[j].appendChild(rockTh[h]);
+            rockTr[j].appendChild(rockTd[d]);
+            d++;
+            rockTr[j].appendChild(rockTd[d]);
+            h++;
+            if(j == 1){
+                rockTd[d].appendChild(imgArray[0]);
+            } else if(j == 2){
+                rockTd[d].appendChild(imgArray[1]);
+            }
+            d++;
+        }
+        tabPaneArray[i] = tabPane;
+        rightCont.appendChild(tabPaneArray[i]);
+        outCont[0].appendChild(rightCont);
+    }
+    console.log(outCont[0]);
+}
+
+//Function for reset all data from general menu in the prototypes container:
+function resetPreparedRockets(){
+    var outCont = document.getElementsByClassName("external-container rocket");
+    outCont[0].innerHTML = "";
 }
