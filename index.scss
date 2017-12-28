@@ -310,7 +310,6 @@ a:hover {
     text-align: center;
     height: 50px;
     line-height: 45px;
-    width: 100%;
     background: linear-gradient(to bottom, #404040 0%, #000000 100%);
     color: #ffcc00;
 }
@@ -339,6 +338,10 @@ tr {
 .country-icon {
     height: 30px;
     width: 30px;
+}
+
+.external-container.rocket {
+    height: 40vh;
 }
 
 @media (min-width: 575px) and (max-width: 991px){
